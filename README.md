@@ -9,7 +9,7 @@ A simple REST API implementing a CRUD without Spring Boot usage
 
 ## Running the application
 
-If you have a tomcat installed, you can create the war file and deploy it in your container.
+You need to have a Tomcat installed to deploy the war file.
 
 To create the war file, just execute the following command:
 
@@ -17,3 +17,4 @@ To create the war file, just execute the following command:
 gradlew war
 ```
 
+Then, copy the war file created to the webapps folder in the application container.
