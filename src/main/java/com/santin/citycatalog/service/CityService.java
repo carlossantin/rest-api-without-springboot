@@ -31,4 +31,12 @@ public class CityService {
         List<City> allCities = cityRepository.findAll();
         return objectMapper.convertValue(allCities, new TypeReference<List<CityDto>>(){});
     }
+
+    public CityDto getCityById(Long id) {
+        City city = cityRepository.findById(id);
+        if (city != null) {
+            return objectMapper.convertValue(city, CityDto.class);
+        }
+        throw new RuntimeException(String.format("There isn't a city having ID = %s", id));
+    }
 }

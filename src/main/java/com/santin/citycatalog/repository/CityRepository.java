@@ -24,4 +24,8 @@ public class CityRepository {
         Query query = entityManager.createQuery("SELECT c FROM City c");
         return (List<City>)query.getResultList();
     }
+
+    public City findById(Long id) {
+        return this.entityManager.find(City.class, id);
+    }
 }
