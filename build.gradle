@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.santin'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'org.springframework', name: 'spring-core', version: '5.1.5.RELEASE'
+    compile group: 'org.springframework', name: 'spring-webmvc', version: '5.1.5.RELEASE'
+    compileOnly group: 'javax.servlet', name: 'javax.servlet-api', version: '4.0.1'
+}
