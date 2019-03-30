@@ -29,7 +29,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     private ApiInfo metaData() {
         return new ApiInfoBuilder()
                 .title("REST API without Spring Boot")
-                .description("\"Simple CRUD application without using Spring Biit.\"")
+                .description("\"Simple CRUD application without using Spring Boot.\"")
                 .version("1.0.0")
                 .contact(new Contact("Carlos Eduardo Santin", "https://github.com/carlossantin", "cesantin@gmail.com"))
                 .build();

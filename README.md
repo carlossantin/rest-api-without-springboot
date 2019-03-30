@@ -18,3 +18,13 @@ gradlew war
 ```
 
 Then, copy the war file created to the webapps folder in the application container.
+
+## Running through Docker:
+
+If you don't have Tomcat installed, you can run the Dockerfile, which will start a Tomcat container and deploy the war file for you.
+
+```
+gradlew clean build
+docker build -t rest-api-without-springboot
+docker run -it --rm -p 8080:8080 rest-api-without-springboot
+```
