@@ -20,4 +20,12 @@ public class CityDto {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "{\"CityDto\":{"
+                + "\"id\":\"" + id + "\""
+                + ", \"name\":\"" + name + "\""
+                + "}}";
+    }
 }

@@ -27,6 +27,11 @@ public class CityService {
         return objectMapper.convertValue(city, CityDto.class);
     }
 
+    public CityDto updateCity(CityDto city) {
+        cityRepository.update(city);
+        return city;
+    }
+
     public List<CityDto> getAllCities() {
         List<City> allCities = cityRepository.findAll();
         return objectMapper.convertValue(allCities, new TypeReference<List<CityDto>>(){});

@@ -1,11 +1,14 @@
 package com.santin.citycatalog.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.santin.citycatalog.controller.input.NewCity;
 import com.santin.citycatalog.dto.CityDto;
 import com.santin.citycatalog.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,10 +22,18 @@ public class CityCatalogController {
 
     @Autowired
     private CityService cityService;
+    @Autowired
+    private ObjectMapper objectMapper;
 
     @PostMapping
-    public ResponseEntity<CityDto> addCity(@RequestBody CityDto city) {
-        CityDto cityDto = cityService.addCity(city);
+    public ResponseEntity<CityDto> addCity(@RequestBody NewCity city) {
+        CityDto cityDto = cityService.addCity(objectMapper.convertValue(city, CityDto.class));
+        return ResponseEntity.ok(cityDto);
+    }
+
+    @PatchMapping
+    public ResponseEntity<CityDto> updateCity(@RequestBody CityDto city) {
+        CityDto cityDto = cityService.updateCity(city);
         return ResponseEntity.ok(cityDto);
     }
 
