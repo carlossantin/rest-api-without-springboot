@@ -42,4 +42,10 @@ public class CityRepository {
     public City findById(Long id) {
         return this.entityManager.find(City.class, id);
     }
+
+    @Transactional
+    public void delete(Long id) {
+        City city = this.findById(id);
+        this.entityManager.remove(city);
+    }
 }

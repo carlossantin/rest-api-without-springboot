@@ -44,4 +44,7 @@ public class CityService {
         }
         throw new RuntimeException(String.format("There isn't a city having ID = %s", id));
     }
+    public void removeCity(Long id) {
+        cityRepository.delete(id);
+    }
 }
