@@ -1,6 +1,5 @@
 package com.santin.citycatalog.repository;
 
-import com.santin.citycatalog.dto.CityDto;
 import com.santin.citycatalog.entity.City;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
