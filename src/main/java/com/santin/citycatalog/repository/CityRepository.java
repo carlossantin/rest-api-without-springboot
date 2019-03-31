@@ -26,11 +26,7 @@ public class CityRepository {
     }
 
     @Transactional
-    public void update(CityDto cityDto) {
-        City city = this.findById(cityDto.getId());
-        logger.info("Updating city from {} to {}", city, cityDto);
-        city.setName(cityDto.getName());
-
+    public void update(City city) {
         this.entityManager.persist(city);
     }
 

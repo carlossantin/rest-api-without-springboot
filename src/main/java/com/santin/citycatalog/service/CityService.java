@@ -7,6 +7,7 @@ import com.santin.citycatalog.entity.City;
 import com.santin.citycatalog.repository.CityRepository;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -27,9 +28,13 @@ public class CityService {
         return objectMapper.convertValue(city, CityDto.class);
     }
 
-    public CityDto updateCity(CityDto city) {
+    @Transactional
+    public CityDto updateCity(CityDto cityDto) {
+        City city = cityRepository.findById(cityDto.getId());
+        city.setName(cityDto.getName());
+
         cityRepository.update(city);
-        return city;
+        return cityDto;
     }
 
     public List<CityDto> getAllCities() {
