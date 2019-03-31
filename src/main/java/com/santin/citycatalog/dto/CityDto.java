@@ -1,5 +1,7 @@
 package com.santin.citycatalog.dto;
 
+import java.util.Objects;
+
 public class CityDto {
 
     private Long id;
@@ -19,6 +21,20 @@ public class CityDto {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CityDto cityDto = (CityDto) o;
+        return Objects.equals(id, cityDto.id) &&
+                Objects.equals(name, cityDto.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name);
     }
 
     @Override

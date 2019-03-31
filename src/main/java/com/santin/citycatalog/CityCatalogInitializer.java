@@ -21,6 +21,7 @@ public class CityCatalogInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher",
                 new DispatcherServlet(context));
 
+        //spring container will be initialized on app server (tomcat etc) startup.
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
     }

@@ -1,7 +1,7 @@
 package com.santin.citycatalog.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.santin.citycatalog.controller.input.NewCity;
+import com.santin.citycatalog.controller.input.NewCityInput;
 import com.santin.citycatalog.dto.CityDto;
 import com.santin.citycatalog.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +27,7 @@ public class CityCatalogController {
     private ObjectMapper objectMapper;
 
     @PostMapping
-    public ResponseEntity<CityDto> addCity(@RequestBody NewCity city) {
+    public ResponseEntity<CityDto> addCity(@RequestBody NewCityInput city) {
         CityDto cityDto = cityService.addCity(objectMapper.convertValue(city, CityDto.class));
         return ResponseEntity.ok(cityDto);
     }

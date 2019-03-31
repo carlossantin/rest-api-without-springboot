@@ -1,8 +1,6 @@
 package com.santin.citycatalog.repository;
 
 import com.santin.citycatalog.entity.City;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -16,8 +14,6 @@ public class CityRepository {
 
     @PersistenceContext
     private EntityManager entityManager;
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Transactional
     public City add(City city) {

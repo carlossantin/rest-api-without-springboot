@@ -39,6 +39,7 @@ public class PersistenceJPAConfig {
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.h2.Driver");
+        //DB_CLOSE_DELAY=-1 keeps the content of an in-memory database as long as the virtual machine is alive
         dataSource.setUrl("jdbc:h2:mem:test;DB_CLOSE_DELAY=-1");
         dataSource.setUsername( "sa" );
         dataSource.setPassword( "" );
